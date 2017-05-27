@@ -10,8 +10,9 @@ RUN mkdir /lib64 && \
     apk update && \
     apk upgrade && \
     apk add --upgrade --no-cache sudo make patch musl libx11 && \
-    apk add --upgrade --no-cache --virtual .build-dependencies \
-            curl gcc musl-dev libx11-dev && \
+    apk add --upgrade --no-cache \
+            --virtual=.build-dependencies \
+            curl gcc make patch musl-dev libx11-dev && \
     \
     adduser -h $HOME -s /bin/sh -D opam && \
     \
@@ -23,7 +24,7 @@ RUN mkdir /lib64 && \
     find $HOME/.opam -regex '.*\\.\\(cmt\\|cmti\\|annot\\|byte\\)' -delete && \
     rm -rf $HOME/.opam/archives \
            $HOME/.opam/repo/default/archives \
-           $HOME/.opam/$OCAML_VERSION/build \
+           $HOME/.opam/$OCAML_VERSION/build && \
     \
     apk del .build-dependencies
 

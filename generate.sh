@@ -22,12 +22,13 @@ RUN mkdir /lib64 && \\
     apk update && \\
     apk upgrade && \\
     apk add --upgrade --no-cache sudo make patch musl libx11 && \\
-    apk add --upgrade --no-cache --virtual .build-dependencies \\
-            curl gcc musl-dev libx11-dev && \\
+    apk add --upgrade --no-cache \\
+            --virtual=.build-dependencies \\
+            curl gcc make patch musl-dev libx11-dev && \\
     \\
     adduser -h \$HOME -s /bin/sh -D opam && \\
     \\
-$(opam_ocaml_scripts) \\
+$(opam_ocaml_scripts) && \\
     \\
     apk del .build-dependencies
 EOF
@@ -43,9 +44,9 @@ RUN yum update -y && \\
     adduser --home-dir \$HOME --shell /bin/bash opam && \\
     passwd -d opam && \\
     \\
-$(opam_ocaml_scripts) \\
+$(opam_ocaml_scripts) && \\
     \\
-    yum remove libx11-devel gcc
+    yum remove gcc patch unzip make libx11-devel
 EOF
 }
 
@@ -58,9 +59,9 @@ RUN apt-get update && \\
     \\
     adduser --disabled-password --home \$HOME --shell /bin/bash --gecos '' opam && \\
     \\
-$(opam_ocaml_scripts) \\
+$(opam_ocaml_scripts) && \\
     \\
-    apt-get purge curl gcc libx11-dev && \\
+    apt-get purge curl gcc patch unzip make libx11-dev && \\
     apt-get autoremove && \\
     apt-get autoclean
 EOF

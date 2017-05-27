@@ -32,63 +32,98 @@ val fact : int -> int = <fun>
 
 ## Distributions
 
-The default `latest` version is the following distribution:
+The default images are built on Alpine 3.5:
 
-| Distribution | OCaml | OPAM | Command |
-| ------------ | ----- | ---- | ------- |
-| Alpine 3.5 | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml` |
+| Tag | OCaml | OPAM | Command | Dockerfile |
+| ------------ | ----- | ---- | ------- | ---------- |
+| **latest** | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.04.1/Dockerfile) |
+| 4.06.0 | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:4.06.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.06.0/Dockerfile) |
+| 4.05.0 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:4.05.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.05.0/Dockerfile) |
+| 4.04.1 | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:4.04.1` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.04.1/Dockerfile) |
+| 4.03.0 | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:4.03.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.03.0/Dockerfile) |
+| 4.02.3 | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:4.02.3` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.02.3/Dockerfile) |
+| 4.01.0 | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:4.01.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.01.0/Dockerfile) |
+| 4.00.1 | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:4.00.1` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.00.1/Dockerfile) |
 
 ### Alpine
 
-| Distribution | OCaml | OPAM | Command |
-| ------------ | ----- | ---- | ------- |
-| Alpine 3.5 | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:alpine3.5_ocaml4.06.0` |
-| Alpine 3.5 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:alpine3.5_ocaml4.05.0` |
-| Alpine 3.5 | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:alpine3.5_ocaml4.04.1` |
-| Alpine 3.5 | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:alpine3.5_ocaml4.03.0` |
-| Alpine 3.5 | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:alpine3.5_ocaml4.02.3` |
-| Alpine 3.5 | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:alpine3.5_ocaml4.01.0` |
-| Alpine 3.5 | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:alpine3.5_ocaml4.00.1` |
+| Distribution | OCaml | OPAM | Command | Dockerfile |
+| ------------ | ----- | ---- | ------- | ---------- |
+| Alpine | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:alpine_ocaml4.06.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.06.0/Dockerfile) |
+| Alpine | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:alpine_ocaml4.05.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.05.0/Dockerfile) |
+| Alpine | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:alpine_ocaml4.04.1` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.04.1/Dockerfile) |
+| Alpine | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:alpine_ocaml4.03.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.03.0/Dockerfile) |
+| Alpine | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:alpine_ocaml4.02.3` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.02.3/Dockerfile) |
+| Alpine | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:alpine_ocaml4.01.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.01.0/Dockerfile) |
+| Alpine | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:alpine_ocaml4.00.1` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.00.1/Dockerfile) |
+| Alpine 3.5 | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:alpine3.5_ocaml4.06.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.06.0/Dockerfile) |
+| Alpine 3.5 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:alpine3.5_ocaml4.05.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.05.0/Dockerfile) |
+| Alpine 3.5 | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:alpine3.5_ocaml4.04.1` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.04.1/Dockerfile) |
+| Alpine 3.5 | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:alpine3.5_ocaml4.03.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.03.0/Dockerfile) |
+| Alpine 3.5 | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:alpine3.5_ocaml4.02.3` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.02.3/Dockerfile) |
+| Alpine 3.5 | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:alpine3.5_ocaml4.01.0` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.01.0/Dockerfile) |
+| Alpine 3.5 | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:alpine3.5_ocaml4.00.1` | [Dockerfile](dockerfiles/alpine3.5_ocaml4.00.1/Dockerfile) |
 
 ### CentOS
 
-| Distribution | OCaml | OPAM | Command |
-| ------------ | ----- | ---- | ------- |
-| Centos 7 | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:centos7_ocaml4.06.0` |
-| Centos 7 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:centos7_ocaml4.05.0` |
-| Centos 7 | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:centos7_ocaml4.04.1` |
-| Centos 7 | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:centos7_ocaml4.03.0` |
-| Centos 7 | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:centos7_ocaml4.02.3` |
-| Centos 7 | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:centos7_ocaml4.01.0` |
-| Centos 7 | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:centos7_ocaml4.00.1` |
-| Centos 6 | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:centos6_ocaml4.06.0` |
-| Centos 6 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:centos6_ocaml4.05.0` |
-| Centos 6 | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:centos6_ocaml4.04.1` |
-| Centos 6 | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:centos6_ocaml4.03.0` |
-| Centos 6 | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:centos6_ocaml4.02.3` |
-| Centos 6 | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:centos6_ocaml4.01.0` |
-| Centos 6 | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:centos6_ocaml4.00.1` |
+| Distribution | OCaml | OPAM | Command | Dockerfile |
+| ------------ | ----- | ---- | ------- | ---------- |
+| CentOS | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:centos_ocaml4.06.0` | [Dockerfile](dockerfiles/centos7_ocaml4.06.0/Dockerfile) |
+| CentOS | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:centos_ocaml4.05.0` | [Dockerfile](dockerfiles/centos7_ocaml4.05.0/Dockerfile) |
+| CentOS | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:centos_ocaml4.04.1` | [Dockerfile](dockerfiles/centos7_ocaml4.04.1/Dockerfile) |
+| CentOS | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:centos_ocaml4.03.0` | [Dockerfile](dockerfiles/centos7_ocaml4.03.0/Dockerfile) |
+| CentOS | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:centos_ocaml4.02.3` | [Dockerfile](dockerfiles/centos7_ocaml4.02.3/Dockerfile) |
+| CentOS | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:centos_ocaml4.01.0` | [Dockerfile](dockerfiles/centos7_ocaml4.01.0/Dockerfile) |
+| CentOS | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:centos_ocaml4.00.1` | [Dockerfile](dockerfiles/centos7_ocaml4.00.1/Dockerfile) |
+| CentOS 7 | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:centos7_ocaml4.06.0` | [Dockerfile](dockerfiles/centos7_ocaml4.06.0/Dockerfile) |
+| CentOS 7 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:centos7_ocaml4.05.0` | [Dockerfile](dockerfiles/centos7_ocaml4.05.0/Dockerfile) |
+| CentOS 7 | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:centos7_ocaml4.04.1` | [Dockerfile](dockerfiles/centos7_ocaml4.04.1/Dockerfile) |
+| CentOS 7 | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:centos7_ocaml4.03.0` | [Dockerfile](dockerfiles/centos7_ocaml4.03.0/Dockerfile) |
+| CentOS 7 | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:centos7_ocaml4.02.3` | [Dockerfile](dockerfiles/centos7_ocaml4.02.3/Dockerfile) |
+| CentOS 7 | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:centos7_ocaml4.01.0` | [Dockerfile](dockerfiles/centos7_ocaml4.01.0/Dockerfile) |
+| CentOS 7 | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:centos7_ocaml4.00.1` | [Dockerfile](dockerfiles/centos7_ocaml4.00.1/Dockerfile) |
+| CentOS 6 | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:centos6_ocaml4.06.0` | [Dockerfile](dockerfiles/centos6_ocaml4.06.0/Dockerfile) |
+| CentOS 6 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:centos6_ocaml4.05.0` | [Dockerfile](dockerfiles/centos6_ocaml4.05.0/Dockerfile) |
+| CentOS 6 | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:centos6_ocaml4.04.1` | [Dockerfile](dockerfiles/centos6_ocaml4.04.1/Dockerfile) |
+| CentOS 6 | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:centos6_ocaml4.03.0` | [Dockerfile](dockerfiles/centos6_ocaml4.03.0/Dockerfile) |
+| CentOS 6 | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:centos6_ocaml4.02.3` | [Dockerfile](dockerfiles/centos6_ocaml4.02.3/Dockerfile) |
+| CentOS 6 | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:centos6_ocaml4.01.0` | [Dockerfile](dockerfiles/centos6_ocaml4.01.0/Dockerfile) |
+| CentOS 6 | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:centos6_ocaml4.00.1` | [Dockerfile](dockerfiles/centos6_ocaml4.00.1/Dockerfile) |
 
 ### Debian
 
-| Distribution | OCaml | OPAM | Command |
-| ------------ | ----- | ---- | ------- |
-| Debian 8 | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:debian8_ocaml4.06.0` |
-| Debian 8 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:debian8_ocaml4.05.0` |
-| Debian 8 | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:debian8_ocaml4.04.1` |
-| Debian 8 | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:debian8_ocaml4.03.0` |
-| Debian 8 | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:debian8_ocaml4.02.3` |
-| Debian 8 | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:debian8_ocaml4.01.0` |
-| Debian 8 | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:debian8_ocaml4.00.1` |
+| Distribution | OCaml | OPAM | Command | Dockerfile |
+| ------------ | ----- | ---- | ------- | ---------- |
+| Debian | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:debian_ocaml4.06.0` | [Dockerfile](dockerfiles/debian8_ocaml4.06.0/Dockerfile) |
+| Debian | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:debian_ocaml4.05.0` | [Dockerfile](dockerfiles/debian8_ocaml4.05.0/Dockerfile) |
+| Debian | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:debian_ocaml4.04.1` | [Dockerfile](dockerfiles/debian8_ocaml4.04.1/Dockerfile) |
+| Debian | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:debian_ocaml4.03.0` | [Dockerfile](dockerfiles/debian8_ocaml4.03.0/Dockerfile) |
+| Debian | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:debian_ocaml4.02.3` | [Dockerfile](dockerfiles/debian8_ocaml4.02.3/Dockerfile) |
+| Debian | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:debian_ocaml4.01.0` | [Dockerfile](dockerfiles/debian8_ocaml4.01.0/Dockerfile) |
+| Debian | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:debian_ocaml4.00.1` | [Dockerfile](dockerfiles/debian8_ocaml4.00.1/Dockerfile) |
+| Debian 8 | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:debian8_ocaml4.06.0` | [Dockerfile](dockerfiles/debian8_ocaml4.06.0/Dockerfile) |
+| Debian 8 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:debian8_ocaml4.05.0` | [Dockerfile](dockerfiles/debian8_ocaml4.05.0/Dockerfile) |
+| Debian 8 | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:debian8_ocaml4.04.1` | [Dockerfile](dockerfiles/debian8_ocaml4.04.1/Dockerfile) |
+| Debian 8 | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:debian8_ocaml4.03.0` | [Dockerfile](dockerfiles/debian8_ocaml4.03.0/Dockerfile) |
+| Debian 8 | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:debian8_ocaml4.02.3` | [Dockerfile](dockerfiles/debian8_ocaml4.02.3/Dockerfile) |
+| Debian 8 | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:debian8_ocaml4.01.0` | [Dockerfile](dockerfiles/debian8_ocaml4.01.0/Dockerfile) |
+| Debian 8 | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:debian8_ocaml4.00.1` | [Dockerfile](dockerfiles/debian8_ocaml4.00.1/Dockerfile) |
 
 ### Ubuntu
 
-| Distribution | OCaml | OPAM | Command |
-| ------------ | ----- | ---- | ------- |
-| Ubuntu 16.04 | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:ubuntu16.04_ocaml4.06.0` |
-| Ubuntu 16.04 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:ubuntu16.04_ocaml4.05.0` |
-| Ubuntu 16.04 | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:ubuntu16.04_ocaml4.04.1` |
-| Ubuntu 16.04 | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:ubuntu16.04_ocaml4.03.0` |
-| Ubuntu 16.04 | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:ubuntu16.04_ocaml4.02.3` |
-| Ubuntu 16.04 | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:ubuntu16.04_ocaml4.01.0` |
-| Ubuntu 16.04 | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:ubuntu16.04_ocaml4.00.1` |
+| Distribution | OCaml | OPAM | Command | Dockerfile |
+| ------------ | ----- | ---- | ------- | ---------- |
+| Ubuntu | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:ubuntu_ocaml4.06.0` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.06.0/Dockerfile) |
+| Ubuntu | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:ubuntu_ocaml4.05.0` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.05.0/Dockerfile) |
+| Ubuntu | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:ubuntu_ocaml4.04.1` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.04.1/Dockerfile) |
+| Ubuntu | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:ubuntu_ocaml4.03.0` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.03.0/Dockerfile) |
+| Ubuntu | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:ubuntu_ocaml4.02.3` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.02.3/Dockerfile) |
+| Ubuntu | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:ubuntu_ocaml4.01.0` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.01.0/Dockerfile) |
+| Ubuntu | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:ubuntu_ocaml4.00.1` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.00.1/Dockerfile) |
+| Ubuntu 16.04 | 4.06.0+trunk | 1.2.2 | `docker pull akabe/ocaml:ubuntu16.04_ocaml4.06.0` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.06.0/Dockerfile) |
+| Ubuntu 16.04 | 4.05.0+trunk | 1.2.2 | `docker pull akabe/ocaml:ubuntu16.04_ocaml4.05.0` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.05.0/Dockerfile) |
+| Ubuntu 16.04 | 4.04.1 | 1.2.2 | `docker pull akabe/ocaml:ubuntu16.04_ocaml4.04.1` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.04.1/Dockerfile) |
+| Ubuntu 16.04 | 4.03.0 | 1.2.2 | `docker pull akabe/ocaml:ubuntu16.04_ocaml4.03.0` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.03.0/Dockerfile) |
+| Ubuntu 16.04 | 4.02.3 | 1.2.2 | `docker pull akabe/ocaml:ubuntu16.04_ocaml4.02.3` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.02.3/Dockerfile) |
+| Ubuntu 16.04 | 4.01.0 | 1.2.2 | `docker pull akabe/ocaml:ubuntu16.04_ocaml4.01.0` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.01.0/Dockerfile) |
+| Ubuntu 16.04 | 4.00.1 | 1.2.2 | `docker pull akabe/ocaml:ubuntu16.04_ocaml4.00.1` | [Dockerfile](dockerfiles/ubuntu16.04_ocaml4.00.1/Dockerfile) |

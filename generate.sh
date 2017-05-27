@@ -66,7 +66,11 @@ $(opam_ocaml_scripts) \\
 EOF
 }
 
-cat <<EOF
+echo "Generating dockerfiles/$TAG/Dockerfile (ALIAS=${ALIAS[@]})..."
+
+mkdir -p dockerfiles/$TAG
+
+cat <<EOF > dockerfiles/$TAG/Dockerfile
 FROM ${OS}
 
 ENV OPAM_VERSION  ${OPAM}
@@ -76,26 +80,26 @@ ENV HOME          /home/opam
 EOF
 
 if [[ "$OS" =~ ^alpine: ]]; then
-    alpine_scripts
+    alpine_scripts >> dockerfiles/$TAG/Dockerfile
     SHELL=sh
 elif [[ "$OS" =~ ^centos: ]]; then
-    centos_scripts
+    centos_scripts >> dockerfiles/$TAG/Dockerfile
     SHELL=bash
 elif [[ "$OS" =~ ^debian: ]]; then
-    debian_scripts
+    debian_scripts >> dockerfiles/$TAG/Dockerfile
     SHELL=bash
 elif [[ "$OS" =~ ^ubuntu: ]]; then
-    debian_scripts
+    debian_scripts >> dockerfiles/$TAG/Dockerfile
     SHELL=bash
 else
     echo -e "\033[31m[ERROR] Unknown base image: ${OS}\033[0m"
     exit 1
 fi
 
-cat <<EOF
+cat <<EOF >> dockerfiles/$TAG/Dockerfile
 
 USER opam
-WORKDIR $HOME
+WORKDIR \$HOME
 ENTRYPOINT [ "opam", "config", "exec", "--" ]
 CMD [ "${SHELL}" ]
 EOF

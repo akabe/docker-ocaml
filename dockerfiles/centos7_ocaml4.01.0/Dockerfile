@@ -20,9 +20,9 @@ RUN yum update -y && \
     find $HOME/.opam -regex '.*\\.\\(cmt\\|cmti\\|annot\\|byte\\)' -delete && \
     rm -rf $HOME/.opam/archives \
            $HOME/.opam/repo/default/archives \
-           $HOME/.opam/$OCAML_VERSION/build \
+           $HOME/.opam/$OCAML_VERSION/build && \
     \
-    yum remove libx11-devel gcc
+    yum remove -y libx11-devel
 
 USER opam
 WORKDIR $HOME

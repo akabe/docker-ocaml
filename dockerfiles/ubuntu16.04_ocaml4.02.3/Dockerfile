@@ -19,10 +19,10 @@ RUN apt-get update && \
     find $HOME/.opam -regex '.*\\.\\(cmt\\|cmti\\|annot\\|byte\\)' -delete && \
     rm -rf $HOME/.opam/archives \
            $HOME/.opam/repo/default/archives \
-           $HOME/.opam/$OCAML_VERSION/build \
+           $HOME/.opam/$OCAML_VERSION/build && \
     \
-    apt-get purge curl gcc libx11-dev && \
-    apt-get autoremove && \
+    apt-get purge -y curl libx11-dev && \
+    apt-get autoremove -y && \
     apt-get autoclean
 
 USER opam

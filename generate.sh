@@ -37,16 +37,14 @@ EOF
 function centos_scripts() {
     cat <<EOF
 RUN yum update -y && \\
-    yum install -y sudo patch unzip make libx11 \\
-                   libx11-devel gcc && \\
+    yum install -y sudo patch unzip make libX11 \\
+                   libX11-devel gcc && \\
     yum clean all && \\
     \\
     adduser --home-dir \$HOME --shell /bin/bash opam && \\
     passwd -d opam && \\
     \\
-$(opam_ocaml_scripts) && \\
-    \\
-    yum remove -y libx11-devel
+$(opam_ocaml_scripts)
 EOF
 }
 

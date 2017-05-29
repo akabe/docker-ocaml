@@ -9,10 +9,10 @@ RUN mkdir /lib64 && \
     \
     apk update && \
     apk upgrade && \
-    apk add --upgrade --no-cache sudo gcc musl-dev libx11 && \
+    apk add --upgrade --no-cache sudo make patch gcc musl-dev libx11 && \
     apk add --upgrade --no-cache \
             --virtual=.build-dependencies \
-            curl make patch libx11-dev && \
+            curl libx11-dev && \
     \
     adduser -h $HOME -s /bin/sh -D opam && \
     \
@@ -21,12 +21,16 @@ RUN mkdir /lib64 && \
     chmod 755 /usr/bin/opam && \
     su opam -c "opam init -a -y --comp $OCAML_VERSION" && \
     \
-    find $HOME/.opam -regex '.*\\.\\(cmt\\|cmti\\|annot\\|byte\\)' -delete && \
+    find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \
+           $HOME/.opam/repo/default/compilers \
+           $HOME/.opam/repo/default/packages \
            $HOME/.opam/repo/default/archives \
+           $HOME/.opam/$OCAML_VERSION/man \
            $HOME/.opam/$OCAML_VERSION/build && \
     \
-    apk del .build-dependencies
+    apk del .build-dependencies && \
+    ln -s /usr/lib/libX11.so.6 /usr/lib/libX11.so
 
 USER opam
 WORKDIR $HOME

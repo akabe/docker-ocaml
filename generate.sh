@@ -7,9 +7,12 @@ function opam_ocaml_scripts() {
     chmod 755 /usr/bin/opam && \
     su opam -c "opam init -a -y --comp $OCAML_VERSION" && \
     \
-    find $HOME/.opam -regex '.*\\.\\(cmt\\|cmti\\|annot\\|byte\\)' -delete && \
+    find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \
+           $HOME/.opam/repo/default/compilers \
+           $HOME/.opam/repo/default/packages \
            $HOME/.opam/repo/default/archives \
+           $HOME/.opam/$OCAML_VERSION/man \
            $HOME/.opam/$OCAML_VERSION/build
 EOF
 }
@@ -21,24 +24,24 @@ RUN mkdir /lib64 && \\
     \\
     apk update && \\
     apk upgrade && \\
-    apk add --upgrade --no-cache sudo gcc musl-dev libx11 && \\
+    apk add --upgrade --no-cache sudo make patch gcc musl-dev libx11 && \\
     apk add --upgrade --no-cache \\
             --virtual=.build-dependencies \\
-            curl make patch libx11-dev && \\
+            curl libx11-dev && \\
     \\
     adduser -h \$HOME -s /bin/sh -D opam && \\
     \\
 $(opam_ocaml_scripts) && \\
     \\
-    apk del .build-dependencies
+    apk del .build-dependencies && \\
+    ln -s /usr/lib/libX11.so.6 /usr/lib/libX11.so
 EOF
 }
 
 function centos_scripts() {
     cat <<EOF
 RUN yum update -y && \\
-    yum install -y sudo patch unzip make libX11 \\
-                   libX11-devel gcc && \\
+    yum install -y sudo patch unzip make gcc libX11-devel && \\
     yum clean all && \\
     \\
     adduser --home-dir \$HOME --shell /bin/bash opam && \\
@@ -52,14 +55,12 @@ function debian_scripts() {
     cat <<EOF
 RUN apt-get update && \\
     apt-get upgrade -y && \\
-    apt-get install -y sudo patch unzip make libx11-6 \\
-                       curl gcc libx11-dev && \\
+    apt-get install -y sudo patch unzip curl make gcc libx11-dev && \\
     \\
     adduser --disabled-password --home \$HOME --shell /bin/bash --gecos '' opam && \\
     \\
 $(opam_ocaml_scripts) && \\
     \\
-    apt-get purge -y curl libx11-dev && \\
     apt-get autoremove -y && \\
     apt-get autoclean
 EOF

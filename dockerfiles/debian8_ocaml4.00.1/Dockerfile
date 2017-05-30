@@ -17,8 +17,6 @@ RUN apt-get update && \
     \
     find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \
-           $HOME/.opam/repo/default/compilers \
-           $HOME/.opam/repo/default/packages \
            $HOME/.opam/repo/default/archives \
            $HOME/.opam/$OCAML_VERSION/man \
            $HOME/.opam/$OCAML_VERSION/build && \

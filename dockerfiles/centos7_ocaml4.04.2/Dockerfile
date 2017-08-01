@@ -1,7 +1,7 @@
-FROM centos:6
+FROM centos:7
 
 ENV OPAM_VERSION  1.2.2
-ENV OCAML_VERSION 4.04.1
+ENV OCAML_VERSION 4.04.2
 ENV HOME          /home/opam
 
 RUN yum update -y && \

@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
 
 ENV OPAM_VERSION  1.2.2
-ENV OCAML_VERSION 4.05.0+trunk
+ENV OCAML_VERSION 4.05.0
 ENV HOME          /home/opam
 
 RUN apt-get update && \

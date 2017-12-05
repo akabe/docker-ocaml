@@ -77,7 +77,7 @@ ENV HOME          /home/opam
 
 EOF
 
-if [[ "$OS" =~ ^alpine: ]]; then
+if [[ "$OS" =~ ^alpine ]]; then
     alpine_scripts >> dockerfiles/$TAG/Dockerfile
     SHELL=sh
 elif [[ "$OS" =~ ^centos: ]]; then

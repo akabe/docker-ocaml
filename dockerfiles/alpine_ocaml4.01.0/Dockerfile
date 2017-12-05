@@ -1,15 +1,20 @@
-FROM centos:7
+FROM alpine
 
 ENV OPAM_VERSION  1.2.2
-ENV OCAML_VERSION 4.06.0
+ENV OCAML_VERSION 4.01.0
 ENV HOME          /home/opam
 
-RUN yum update -y && \
-    yum install -y sudo patch unzip make gcc libX11-devel && \
-    yum clean all && \
+RUN mkdir /lib64 && \
+    ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2 && \
     \
-    adduser --home-dir $HOME --shell /bin/bash opam && \
-    passwd -d opam && \
+    apk update && \
+    apk upgrade && \
+    apk add --upgrade --no-cache sudo make patch gcc curl musl-dev libx11 && \
+    apk add --upgrade --no-cache \
+            --virtual=.build-dependencies \
+            libx11-dev && \
+    \
+    adduser -h $HOME -s /bin/sh -D opam && \
     \
     echo 'opam ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers && \
     curl -L -o /usr/bin/opam "https://github.com/ocaml/opam/releases/download/$OPAM_VERSION/opam-$OPAM_VERSION-$(uname -m)-$(uname -s)" && \
@@ -20,9 +25,12 @@ RUN yum update -y && \
     rm -rf $HOME/.opam/archives \
            $HOME/.opam/repo/default/archives \
            $HOME/.opam/$OCAML_VERSION/man \
-           $HOME/.opam/$OCAML_VERSION/build
+           $HOME/.opam/$OCAML_VERSION/build && \
+    \
+    apk del .build-dependencies && \
+    ln -s /usr/lib/libX11.so.6 /usr/lib/libX11.so
 
 USER opam
 WORKDIR $HOME
 ENTRYPOINT [ "opam", "config", "exec", "--" ]
-CMD [ "bash" ]
+CMD [ "sh" ]

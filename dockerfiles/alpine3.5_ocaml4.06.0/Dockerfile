@@ -1,7 +1,7 @@
 FROM alpine:3.5
 
 ENV OPAM_VERSION  1.2.2
-ENV OCAML_VERSION 4.06.0+trunk
+ENV OCAML_VERSION 4.06.0
 ENV HOME          /home/opam
 
 RUN mkdir /lib64 && \

@@ -12,9 +12,9 @@ env:
   matrix:
     - TAG=alpine3.5_ocaml4.07.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.07.0+trunk ALIAS='alpine_ocaml4.07.0 4.07.0'
     - TAG=alpine3.5_ocaml4.06.1   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.06.1+trunk ALIAS='alpine_ocaml4.06.1 4.06.1'
-    - TAG=alpine3.5_ocaml4.06.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.06.0       ALIAS='alpine_ocaml4.06.0 4.06.0'
+    - TAG=alpine3.5_ocaml4.06.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.06.0       ALIAS='alpine_ocaml4.06.0 4.06.0 latest'
     - TAG=alpine3.5_ocaml4.05.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.05.0       ALIAS='alpine_ocaml4.05.0 4.05.0'
-    - TAG=alpine3.5_ocaml4.04.2   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.04.2       ALIAS='alpine_ocaml4.04.2 4.04.2 latest'
+    - TAG=alpine3.5_ocaml4.04.2   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.04.2       ALIAS='alpine_ocaml4.04.2 4.04.2'
     - TAG=alpine3.5_ocaml4.03.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.03.0       ALIAS='alpine_ocaml4.03.0 4.03.0'
     - TAG=alpine3.5_ocaml4.02.3   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.02.3       ALIAS='alpine_ocaml4.02.3 4.02.3'
     - TAG=alpine3.5_ocaml4.01.0   OS=alpine:3.5   OPAM=1.2.2 OCAML=4.01.0       ALIAS='alpine_ocaml4.01.0 4.01.0'

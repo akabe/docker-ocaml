@@ -1,15 +1,14 @@
-FROM centos:7
+FROM ubuntu:16.04
 
 ENV OPAM_VERSION  1.2.2
-ENV OCAML_VERSION 4.06.0
+ENV OCAML_VERSION 4.07.0+trunk
 ENV HOME          /home/opam
 
-RUN yum update -y && \
-    yum install -y sudo patch unzip make gcc libX11-devel && \
-    yum clean all && \
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y sudo patch unzip curl make gcc libx11-dev && \
     \
-    adduser --home-dir $HOME --shell /bin/bash opam && \
-    passwd -d opam && \
+    adduser --disabled-password --home $HOME --shell /bin/bash --gecos '' opam && \
     \
     echo 'opam ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers && \
     curl -L -o /usr/bin/opam "https://github.com/ocaml/opam/releases/download/$OPAM_VERSION/opam-$OPAM_VERSION-$(uname -m)-$(uname -s)" && \
@@ -20,7 +19,10 @@ RUN yum update -y && \
     rm -rf $HOME/.opam/archives \
            $HOME/.opam/repo/default/archives \
            $HOME/.opam/$OCAML_VERSION/man \
-           $HOME/.opam/$OCAML_VERSION/build
+           $HOME/.opam/$OCAML_VERSION/build && \
+    \
+    apt-get autoremove -y && \
+    apt-get autoclean
 
 USER opam
 WORKDIR $HOME

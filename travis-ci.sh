@@ -71,6 +71,8 @@ if [ "$BASE_IMAGE" == alpine ]; then
     DIRECTORY=dockerfiles/alpine
 elif [ "$BASE_IMAGE" == centos ]; then
     DIRECTORY=dockerfiles/centos
+elif [ "$BASE_IMAGE" == debian ]; then
+    DIRECTORY=dockerfiles/debian
 else
     red_echo "[Error] Unknown base image $BASE"
 fi

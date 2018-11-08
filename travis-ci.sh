@@ -82,7 +82,7 @@ fi
 git_diff_pullreq > pullreq.diff
 cat pullreq.diff
 
-if grep "^+++ b/$DIRECTORY" pullreq.diff >/dev/null; then
+if [[ "$TRAVIS_PULL_REQUEST" != false ]] || grep "^+++ b/$DIRECTORY" pullreq.diff >/dev/null; then
     build_image
     test_image
     deploy_image

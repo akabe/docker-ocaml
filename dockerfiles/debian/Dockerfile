@@ -5,7 +5,6 @@ FROM $BASE_IMAGE:$BASE_TAG
 ARG OCAML_VERSION
 ENV OPAM_VERSION  2.0.2
 ENV OCAML_VERSION $OCAML_VERSION
-ENV HOME          /home/opam
 
 # Install dependencies
 RUN apt-get update && \
@@ -13,21 +12,17 @@ RUN apt-get update && \
     apt-get install -y sudo patch unzip curl make gcc libx11-dev
 
 # Install OPAM
-RUN adduser --disabled-password --home $HOME --shell /bin/bash --gecos '' opam && \
-    echo 'opam ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers && \
-    curl -L -o /usr/bin/opam "https://github.com/ocaml/opam/releases/download/$OPAM_VERSION/opam-$OPAM_VERSION-$(uname -m)-$(uname -s)" && \
+RUN curl -L -o /usr/bin/opam "https://github.com/ocaml/opam/releases/download/$OPAM_VERSION/opam-$OPAM_VERSION-$(uname -m)-$(uname -s)" && \
     chmod 755 /usr/bin/opam
 
 # Install OCaml with X11 Graphics module
-RUN su opam -c "opam init -a -y --comp $OCAML_VERSION --disable-sandboxing" && \
+RUN opam init -a -y --comp $OCAML_VERSION --disable-sandboxing && \
     \
-    find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
-    rm -rf $HOME/.opam/archives \
-           $HOME/.opam/repo/default/archives \
-           $HOME/.opam/$OCAML_VERSION/man \
-           $HOME/.opam/$OCAML_VERSION/build
+    find /root/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
+    rm -rf /root/.opam/archives \
+           /root/.opam/repo/default/archives \
+           /root/.opam/$OCAML_VERSION/man \
+           /root/.opam/$OCAML_VERSION/build
 
-USER opam
-WORKDIR $HOME
 ENTRYPOINT [ "opam", "config", "exec", "--" ]
 CMD [ "/bin/bash" ]

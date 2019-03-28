@@ -1,18 +1,15 @@
 ARG BASE_TAG
-FROM alpine:$BASE_TAG
+FROM frolvlad/alpine-glibc:$BASE_TAG
 
 ARG OCAML_VERSION
-ENV OPAM_VERSION  1.2.2
+ENV OPAM_VERSION  2.0.2
 ENV OCAML_VERSION $OCAML_VERSION
 ENV HOME          /home/opam
-
-RUN mkdir /lib64 && \
-    ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
 
 # Install dependencies
 RUN apk update && \
     apk upgrade && \
-    apk add --upgrade --no-cache sudo make patch gcc curl musl-dev libx11
+    apk add --upgrade --no-cache sudo make patch gcc curl openssl musl-dev libx11
 
 # Install OPAM
 RUN adduser -h $HOME -s /bin/sh -D opam && \
@@ -25,7 +22,7 @@ RUN apk add --upgrade --no-cache \
             --virtual=.build-dependencies \
             libx11-dev && \
     \
-    su opam -c "opam init -a -y --comp $OCAML_VERSION" && \
+    su opam -c "opam init -a -y --comp $OCAML_VERSION --disable-sandboxing" && \
     \
     find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \

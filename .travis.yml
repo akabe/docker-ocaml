@@ -10,14 +10,14 @@ services:
 
 matrix:
   include:
-    - env: BASE=3.5   OCAML=4.07.0       TAGS='alpine3.5_ocaml4.07.0 alpine_ocaml4.07.0 4.07.0'
-    - env: BASE=3.5   OCAML=4.06.1       TAGS='alpine3.5_ocaml4.06.1 alpine_ocaml4.06.1 4.06.1'
-    - env: BASE=3.5   OCAML=4.05.0       TAGS='alpine3.5_ocaml4.05.0 alpine_ocaml4.05.0 4.05.0'
-    - env: BASE=3.5   OCAML=4.04.2       TAGS='alpine3.5_ocaml4.04.2 alpine_ocaml4.04.2 4.04.2'
-    - env: BASE=3.5   OCAML=4.03.0       TAGS='alpine3.5_ocaml4.03.0 alpine_ocaml4.03.0 4.03.0'
-    - env: BASE=3.5   OCAML=4.02.3       TAGS='alpine3.5_ocaml4.02.3 alpine_ocaml4.02.3 4.02.3'
-    - env: BASE=3.5   OCAML=4.01.0       TAGS='alpine3.5_ocaml4.03.0 alpine_ocaml4.01.0 4.01.0'
-    - env: BASE=3.5   OCAML=4.00.1       TAGS='alpine3.5_ocaml4.00.1 alpine_ocaml4.00.1 4.00.1'
+    - env: BASE=alpine:latest OCAML=4.07.0       TAGS='ocaml4.07.0 alpine_ocaml4.07.0 4.07.0'
+    - env: BASE=alpine:latest OCAML=4.06.1       TAGS='ocaml4.06.1 alpine_ocaml4.06.1 4.06.1'
+    - env: BASE=alpine:latest OCAML=4.05.0       TAGS='ocaml4.05.0 alpine_ocaml4.05.0 4.05.0'
+    - env: BASE=alpine:latest OCAML=4.04.2       TAGS='ocaml4.04.2 alpine_ocaml4.04.2 4.04.2'
+    - env: BASE=alpine:latest OCAML=4.03.0       TAGS='ocaml4.03.0 alpine_ocaml4.03.0 4.03.0'
+    - env: BASE=alpine:latest OCAML=4.02.3       TAGS='ocaml4.02.3 alpine_ocaml4.02.3 4.02.3'
+    - env: BASE=alpine:latest OCAML=4.01.0       TAGS='ocaml4.03.0 alpine_ocaml4.01.0 4.01.0'
+    - env: BASE=alpine:latest OCAML=4.00.1       TAGS='ocaml4.00.1 alpine_ocaml4.00.1 4.00.1'
     - env: BASE=centos:7     OPAM=1.2.2 OCAML=4.07.0       TAGS='centos7_ocaml4.07.0 centos_ocaml4.07.0'
     - env: BASE=centos:7     OPAM=1.2.2 OCAML=4.06.1       TAGS='centos7_ocaml4.06.1 centos_ocaml4.06.1'
     - env: BASE=centos:7     OPAM=1.2.2 OCAML=4.05.0       TAGS='centos7_ocaml4.05.0 centos_ocaml4.05.0'

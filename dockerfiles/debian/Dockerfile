@@ -3,7 +3,7 @@ ARG BASE_TAG
 FROM $BASE_IMAGE:$BASE_TAG
 
 ARG OCAML_VERSION
-ENV OPAM_VERSION  1.2.2
+ENV OPAM_VERSION  2.0.2
 ENV OCAML_VERSION $OCAML_VERSION
 ENV HOME          /home/opam
 
@@ -19,7 +19,7 @@ RUN adduser --disabled-password --home $HOME --shell /bin/bash --gecos '' opam &
     chmod 755 /usr/bin/opam
 
 # Install OCaml with X11 Graphics module
-RUN su opam -c "opam init -a -y --comp $OCAML_VERSION" && \
+RUN su opam -c "opam init -a -y --comp $OCAML_VERSION --disable-sandboxing" && \
     \
     find $HOME/.opam -regex '.*\.\(cmt\|cmti\|annot\|byte\)' -delete && \
     rm -rf $HOME/.opam/archives \

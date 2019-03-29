@@ -44,11 +44,10 @@ matrix:
     - env: BASE=ubuntu:16.04  OCAML=4.00.1       TAGS='ubuntu16.04_ocaml4.00.1 ubuntu_ocaml4.00.1'
   allow_failures:
     # OCaml 4.04.2 often fails due to stack overflow
-    - env: BASE=alpine:3.5   OPAM=1.2.2 OCAML=4.04.2       TAGS='alpine3.5_ocaml4.04.2 alpine_ocaml4.04.2 4.04.2'
-    - env: BASE=centos:7     OPAM=1.2.2 OCAML=4.04.2       TAGS='centos7_ocaml4.04.2 centos_ocaml4.04.2'
-    - env: BASE=centos:6     OPAM=1.2.2 OCAML=4.04.2       TAGS='centos6_ocaml4.04.2'
-    - env: BASE=debian:8     OPAM=1.2.2 OCAML=4.04.2       TAGS='debian8_ocaml4.04.2 debian_ocaml4.04.2'
-    - env: BASE=ubuntu:16.04 OPAM=1.2.2 OCAML=4.04.2       TAGS='ubuntu16.04_ocaml4.04.2 ubuntu_ocaml4.04.2'
+    - env: BASE=alpine:latest OCAML=4.04.2       TAGS='alpine3.5_ocaml4.04.2 alpine_ocaml4.04.2 4.04.2'
+    - env: BASE=centos:7      OCAML=4.04.2       TAGS='centos7_ocaml4.04.2 centos_ocaml4.04.2'
+    - env: BASE=debian:8      OCAML=4.04.2       TAGS='debian8_ocaml4.04.2 debian_ocaml4.04.2'
+    - env: BASE=ubuntu:16.04  OCAML=4.04.2       TAGS='ubuntu16.04_ocaml4.04.2 ubuntu_ocaml4.04.2'
 
 script:
   - bash -eu travis-ci.sh
